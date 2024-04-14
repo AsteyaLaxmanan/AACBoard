@@ -25,6 +25,7 @@ struct ContentView: View {
 struct Categories: View {
     
     @State var tests = ["Asteya 0", "Neel 1", "Gaurwik 2", "Shiv 3", "Ani 4", "Ayaan 5", "Reya 6"]
+    
     let cols = 2 // must have AT LEAST 2 cols --> if not, code breaks
     
     var body: some View {
@@ -33,7 +34,19 @@ struct Categories: View {
             .background(Color.green)
 
         Catalog(tests: $tests, cols: cols)
+        
+        
+//        Button {
+//            tests = ["Asteya 0"]
+//        } label: {
+//            Text("Test Button")
+//                .padding()
+//                .background(Color.yellow)
+//        }
+//        .padding()
+
     }
+    
 }
 
 struct Catalog: View {
@@ -53,13 +66,18 @@ struct Catalog: View {
                 ForEach(0..<cols, id: \.self) { col in
                     LazyVStack {
                         ForEach(0..<rows, id: \.self) { row in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 25.0)
-                                    .fill(Color.red)
-                                    .frame(width: 150, height: 100)
-                                    .padding()
-                                Text(tests[row * 2 + col])
+                            Button {
+                                buttonPressed()
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 25.0)
+                                        .fill(Color.red)
+                                        .frame(width: 150, height: 100)
+                                        .padding()
+                                    Text(tests[row * 2 + col])
+                                }
                             }
+
                         }
                     
                     }
@@ -68,27 +86,28 @@ struct Catalog: View {
             }
             HStack{
                 ForEach(0..<lastRow, id: \.self) { index in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(Color.red)
-                            .frame(width: 150, height: 100)
-                            .padding()
-                        Text(tests[rows * cols + index])
+                    
+                    Button {
+                        buttonPressed()
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(Color.red)
+                                .frame(width: 150, height: 100)
+                                .padding()
+                            Text(tests[rows * cols + index])
+                        }
                     }
                 }
             }
             
-            Button {
-                tests = ["Asteya 0"]
-            } label: {
-                Text("Test Button")
-                    .padding()
-                    .background(Color.yellow)
-            }
-
         }
         
     
+    }
+    
+    func buttonPressed() {
+        tests = ["Asteya 0", "Neel 1"]
     }
 }
 
