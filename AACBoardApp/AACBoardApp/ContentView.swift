@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-let LIST = ["
-"]
+let LIST = ["Apple", "]
 
 struct ContentView: View {
     var body: some View {
