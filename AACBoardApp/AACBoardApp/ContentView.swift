@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-let LIST = ["Apple", "]
+let LIST = ["Home", "Hospital", "Park", "School", "Store", "Drink", "Eat", "Give", "Go To", "Like", "Play", "Read", "Run", "See", "Sleep", "Talk", "Think", "Walk", "Want", "Wear", "Write", "He", "It", "Me", "She", "They", "We", "You", "Coat", "Dress", "Hoodie", "Jacket", "Jersey", "Pants", "Shirt", "Shorts", "Skirt", "Sweater", "Comb", "Soap", "Tissue", "Toilet Paper", "Toothbrush", "Towel", "Apple", "Banana", "Blackberry", "Bread", "Burger", "Cake", "Cherries", "Chocolate", "Coconut", "Fries", "Grapes", "Ice Cream", "Juice", "Lemon", "Milk", "Orange", "Peach", "Pear", "Pizza", "Plum", "Raspberry", "Rice", "Sandwich", "Soup", "Strawberry", "Watermelon"]
+
+let CONNECTIONS = [
 
 struct ContentView: View {
     var body: some View {
