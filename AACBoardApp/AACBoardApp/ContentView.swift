@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+let LIST = ["
+"]
+
 struct ContentView: View {
     var body: some View {
         
@@ -67,17 +70,22 @@ struct Catalog: View {
                     LazyVStack {
                         ForEach(0..<rows, id: \.self) { row in
                             Button {
+                                // refer to index "row * 2 + col" for tests2
                                 buttonPressed(tests2: ["Asteya 00", "Neel 01"])
                             } label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 25.0)
-                                        .fill(Color.red)
-                                        .frame(width: 150, height: 100)
-                                        .padding()
+//                                    RoundedRectangle(cornerRadius: 25.0)
+//                                        .fill(Color.red)
+//                                        .frame(width: 150, height: 100)
+//                                        .padding()
                                     VStack{
                                         Text(tests[row * 2 + col])
-                                        Image("Assets 1/Objects/Coat.png")
+                                        Image("Toilet Paper")
+                                            .resizable()
+                                            .frame(width: 100, height: 100)
                                     }
+                                    .padding()
+                                    .background(Color.yellow)
                                 }
                             }
 
@@ -93,13 +101,14 @@ struct Catalog: View {
                     Button {
                         buttonPressed(tests2: ["Asteya 00", "Neel 01"])
                     } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .fill(Color.red)
-                                .frame(width: 150, height: 100)
-                                .padding()
+                        VStack{
                             Text(tests[rows * cols + index])
+                            Image("he")
+                                .resizable()
+                                .frame(width: 100, height: 100)
                         }
+                        .padding()
+                        .background(Color.yellow)
                     }
                 }
             }
