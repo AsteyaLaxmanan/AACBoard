@@ -8,12 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var sentence: String = "Sentence Builder"
+    
     var body: some View {
+        
+        var data = ["Hello", "Hi"]
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text (
+                "\(sentence)"
+            ).frame(maxWidth: .infinity, minHeight: 50) .background(Color.blue)
+            Spacer()
+            HStack {
+                Button(action: {
+                    if (sentence.elementsEqual("Sentence Builder")) {
+                        sentence = ""
+                    }
+                    
+                    sentence = sentence + " \(data[0])"
+                }, label: {
+                    Text("\(data[0])")
+                })
+                
+                Button(action: {
+                    if (sentence.elementsEqual("Sentence Builder")) {
+                        sentence = ""
+                    }
+                    
+                    sentence = sentence + " \(data[1])"
+                }, label: {
+                    Text("\(data[1])")
+                })
+            }
         }
         .padding()
     }
