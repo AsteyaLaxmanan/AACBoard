@@ -67,14 +67,17 @@ struct Catalog: View {
                     LazyVStack {
                         ForEach(0..<rows, id: \.self) { row in
                             Button {
-                                buttonPressed()
+                                buttonPressed(tests2: ["Asteya 00", "Neel 01"])
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 25.0)
                                         .fill(Color.red)
                                         .frame(width: 150, height: 100)
                                         .padding()
-                                    Text(tests[row * 2 + col])
+                                    VStack{
+                                        Text(tests[row * 2 + col])
+                                        Image("Assets 1/Objects/Coat.png")
+                                    }
                                 }
                             }
 
@@ -88,7 +91,7 @@ struct Catalog: View {
                 ForEach(0..<lastRow, id: \.self) { index in
                     
                     Button {
-                        buttonPressed()
+                        buttonPressed(tests2: ["Asteya 00", "Neel 01"])
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 25.0)
@@ -106,8 +109,8 @@ struct Catalog: View {
     
     }
     
-    func buttonPressed() {
-        tests = ["Asteya 0", "Neel 1"]
+    func buttonPressed(tests2: [String]) {
+        tests = tests2
     }
 }
 
